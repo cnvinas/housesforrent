@@ -1,0 +1,63 @@
+<div
+  class="card"
+  *ngFor="let item of items | paginate: { itemsPerPage: 5, currentPage: page }"
+>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-lg-4 col-md-12 center-text">
+        <img
+          src="{{ item.homeImage }}"
+          style="height: 120px; margin: 10px"
+        /><br />
+        <span>Price {{ item.overview.price }}</span>
+      </div>
+      <div class="col-lg-4 col-md-12 pt-2">
+        <span>Neighborhood: {{ item.overview.neighborhood }}</span
+        ><br />
+        <span>Beds: {{ item.overview.beds }}</span
+        ><br />
+        <span>Address: {{ item.overview.address }}</span
+        ><br />
+        <span>City: {{ item.overview.city }}</span
+        ><br />
+        <span>ZIP code: {{ item.overview.zipcode }}</span
+        ><br />
+      </div>
+      <div class="col-lg-4 col-md-12">
+        <div class="row">
+          <img
+            class="col-6 p3"
+            style="width: 50%; height: auto; margin: 10px 0"
+            src="{{ item.images[1] }}"
+          />
+          <img
+            class="col-6"
+            style="width: 50%; height: auto; margin: 10px 0"
+            src="{{ item.images[2] }}"
+          />
+        </div>
+        <div class="row">
+          <img
+            class="col-6"
+            style="width: 50%; height: auto; margin: 10px 0"
+            src="{{ item.images[3] }}"
+          />
+          <img
+            class="col-6"
+            style="width: 50%; height: auto; margin: 10px 0"
+            src="{{ item.images[4] }}"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-center">
+  <pagination-controls
+    class="p-4"
+    (pageChange)="page = $event"
+    previousLabel="Prev"
+    nextLabel="Next"
+  >
+  </pagination-controls>
+</div>

@@ -1,0 +1,4 @@
+.custom-height {
+  overflow: auto;
+  max-height: 85vh !important;
+}

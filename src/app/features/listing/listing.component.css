@@ -1,0 +1,19 @@
+.searchIcon {
+  height: 20px;
+}
+.searchIcon:hover {
+  cursor: pointer;
+}
+
+#searchInput:focus-visible {
+  outline: none !important;
+}
+
+.inputContainer {
+  border: 1px solid rgb(198, 198, 198);
+  padding: 5px 0px;
+}
+
+.pSearchInput {
+  display: block;
+}

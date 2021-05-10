@@ -1,0 +1,72 @@
+<div class="jumbotron-fluid border-top border-bottom py-4">
+  <div class="container col-lg-6 text-center">
+    <h1 class="display-4">Homes For Sale & Real Estate</h1>
+    <div
+      class="col-12 btn-group btn-group-toggle justify-content-start"
+      data-toggle="buttons"
+    >
+      <label class="btn btn-secondary active">
+        <input
+          type="radio"
+          name="options"
+          id="option1"
+          autocomplete="off"
+          checked
+          (click)="setSelectedRadio(1)"
+        />
+        Neighborhood
+      </label>
+      <label class="btn btn-secondary">
+        <input
+          type="radio"
+          name="options"
+          id="option2"
+          autocomplete="off"
+          (click)="setSelectedRadio(2)"
+        />
+        City
+      </label>
+      <label class="btn btn-secondary">
+        <input
+          type="radio"
+          name="options"
+          id="option3"
+          autocomplete="off"
+          (click)="setSelectedRadio(3)"
+        />
+        Zip code
+      </label>
+    </div>
+    <p class="card my-4 mx-2 pSearchInput py3">
+      <input
+        class="col-11 border-none"
+        #searchInput
+        (keyup)="getHouses($event)"
+        placeholder="Search"
+      />
+      <span class="col-1">
+        <img
+          src="../../../assets/searchIcon.png"
+          class="searchIcon"
+          (click)="getHouses('searchIconClicked')"
+        />
+      </span>
+    </p>
+  </div>
+</div>
+<div class="jumbotron-fluid border-bottom py-4">
+  <div class="container col-lg-6 text-start">
+    <h4>Most Visited</h4>
+    <app-visited-houses-card-container
+      [items]="mostVisitedHouses"
+    ></app-visited-houses-card-container>
+  </div>
+</div>
+<div class="jumbotron-fluid border-bottom py-4">
+  <div class="container col-lg-6 text-start">
+    <h4>Last Visited</h4>
+    <app-visited-houses-card-container
+      [items]="lastVisitedHouses"
+    ></app-visited-houses-card-container>
+  </div>
+</div>

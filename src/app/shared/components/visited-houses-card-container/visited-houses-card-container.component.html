@@ -1,0 +1,11 @@
+<div class="card-container">
+  <div class="card" *ngFor="let item of items">
+    <div class="card-body text-center py4" (click)="openDetails(item)">
+      <img style="height: 50px" src="{{ item.homeImage }}" /><br />
+      <span>${{ item.overview.price }}</span
+      ><br />
+      <span>Total view: {{ item.visits.total }}</span
+      ><br />
+    </div>
+  </div>
+</div>

@@ -1,0 +1,100 @@
+<div class="jumbotron jumbotron-fluid py-4">
+  <div
+    class="jumbotron jumbotron-fluid text-center border-top border-bottom py-4"
+  >
+    <div class="container col-lg-6 text-start">
+      <h4>Your favourite homes</h4>
+      <app-visited-houses-card-container
+        [items]="favHouses"
+        *ngIf="favHouses.length"
+      ></app-visited-houses-card-container>
+      <div *ngIf="!favHouses.length" class="text-center col-12 my-5">
+        <h5>There are no homes matching your search</h5>
+      </div>
+    </div>
+  </div>
+  <div class="jumbotron jumbotron-fluid text-center py-4">
+    <div class="container col-lg-6 text-start">
+      <h4>List of Homes</h4>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" data-toggle="pill" href="#menu1"
+            >Houses total</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-toggle="pill" href="#menu2">Filters</a>
+        </li>
+      </ul>
+
+      <div class="tab-content">
+        <div id="menu1" class="tab-pane active">
+          <div class="jumbotron jumbotron-fluid py-4">
+            <div class="container text-start">
+              <app-house-detail [items]="housesTotal"></app-house-detail>
+            </div>
+          </div>
+        </div>
+        <div id="menu2" class="tab-pane fade">
+          <div class="jumbotron jumbotron-fluid py-4">
+            <div class="container text-start">
+              <div
+                class="col-12 btn-group btn-group-toggle justify-content-start"
+                data-toggle="buttons"
+              >
+                <label class="btn btn-secondary active">
+                  <input
+                    type="radio"
+                    name="options"
+                    id="option1"
+                    autocomplete="off"
+                    checked
+                    (click)="setSelectedRadio(1)"
+                  />
+                  Neighborhood
+                </label>
+                <label class="btn btn-secondary">
+                  <input
+                    type="radio"
+                    name="options"
+                    id="option2"
+                    autocomplete="off"
+                    (click)="setSelectedRadio(2)"
+                  />
+                  City
+                </label>
+                <label class="btn btn-secondary">
+                  <input
+                    type="radio"
+                    name="options"
+                    id="option3"
+                    autocomplete="off"
+                    (click)="setSelectedRadio(3)"
+                  />
+                  Zip code
+                </label>
+              </div>
+              <p class="card my-4 mx-2 pSearchInput py3">
+                <input
+                  class="col-11 border-none"
+                  #searchInput
+                  (keyup)="getHouses($event)"
+                  placeholder="Search"
+                />
+                <span class="col-1">
+                  <img
+                    src="../../../assets/searchIcon.png"
+                    class="searchIcon"
+                    (click)="getHouses('searchIconClicked')"
+                  />
+                </span>
+              </p>
+              <h4>List of Homes</h4>
+              <app-house-detail [items]="housesTotal"></app-house-detail>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

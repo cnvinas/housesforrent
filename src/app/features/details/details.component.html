@@ -1,0 +1,168 @@
+<div class="row">
+  <div class="col-8 p-4 custom-height">
+    <div class="row justify-content-center">
+      <img
+        src="{{ houseDetails[0].homeImage }}"
+        data-toggle="modal"
+        data-target="#exampleModal2"
+        class="col-10 p-4"
+      />
+    </div>
+    <div class="row justify-content-center">
+      <img
+        class="col-5 p-4"
+        src="{{ item.homeImage }}"
+        *ngFor="let item of nextItems"
+      />
+    </div>
+  </div>
+  <div class="col-4 p-5">
+    <h4>Property Information</h4>
+    <h6>Overview</h6>
+    <div class="border-top mb3">
+      <span>Price: {{ houseDetails[0].overview.price }} </span><br />
+      <span>Neighborhood: {{ houseDetails[0].overview.neighborhood }}</span
+      ><br />
+      <span
+        >Beds: {{ houseDetails[0].overview.beds }} Baths:
+        {{ houseDetails[0].overview.baths }}</span
+      ><br />
+      <span>Address: {{ houseDetails[0].overview.address }}</span
+      ><br />
+      <span>City: {{ houseDetails[0].overview.city }}</span
+      ><br />
+      <span>ZIP code: {{ houseDetails[0].overview.zipcode }}</span
+      ><br />
+      <span>Available: {{ houseDetails[0].overview.available }}</span
+      ><br />
+    </div>
+    <h4>Facts and features</h4>
+    <div class="border-top mb3">
+      <span class="mt-2">Type: {{ houseDetails[0].facts.type }}</span
+      ><br />
+      <span class="mt-2">Year Built: {{ houseDetails[0].facts.yearBuilt }}</span
+      ><br />
+      <span class="mt-2">Heating: {{ houseDetails[0].facts.heating }}</span
+      ><br />
+      <span class="mt-2">Parking: {{ houseDetails[0].facts.parking }}</span
+      ><br />
+      <span class="mt-2">Lot: {{ houseDetails[0].facts.lot }}</span
+      ><br />
+      <span class="mt-2">Stories: {{ houseDetails[0].facts.stories }}</span
+      ><br />
+    </div>
+    <button
+      type="button"
+      class="mt-4 btn btn-primary"
+      data-toggle="modal"
+      data-target="#exampleModal"
+    >
+      click more
+    </button>
+  </div>
+</div>
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Other details</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="mb3">
+          <span>Anual tax: {{ houseDetails[0].others.anualTax }}</span
+          ><br />
+          <span>Has Garage: {{ houseDetails[0].others.hasGarage }}</span
+          ><br />
+          <span>Has Pool: {{ houseDetails[0].others.pool }}</span
+          ><br />
+          <span>Virtual Tour: {{ houseDetails[0].others.virtualTourLink }}</span
+          ><br />
+          <span>Parcel Number: {{ houseDetails[0].others.parcelNumber }}</span
+          ><br />
+          <span>Last sold: {{ houseDetails[0].others.lastSold }}</span
+          ><br />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="exampleModal2"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Carrousel</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div
+          id="carouselExampleControls"
+          class="carousel slide"
+          data-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                class="d-block w-100"
+                src="{{ mainSlider }}"
+                alt="First slide"
+              />
+            </div>
+            <div class="carousel-item" *ngFor="let image of images">
+              <img class="d-block w-100" src="{{ image }}" alt="First slide" />
+            </div>
+          </div>
+          <a
+            class="carousel-control-prev"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a
+            class="carousel-control-next"
+            href="#carouselExampleControls"
+            role="button"
+            data-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
